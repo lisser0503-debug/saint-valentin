@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffc3d5 0%, #e8b4d4 50%, #d4a5d0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animation des cœurs flottants */
+.heart {
+    position: absolute;
+    font-size: 30px;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.7;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.heart:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 85%; top: 15%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 15%; top: 70%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 80%; top: 60%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 50%; top: 10%; animation-delay: 1.5s; }
+.heart:nth-child(6) { left: 30%; top: 40%; animation-delay: 2.5s; }
+
+/* Carte principale */
+.card {
+    background: white;
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-header .emoji {
+    font-size: 28px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.question {
+    color: #d91b5c;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.heart-icon {
+    font-size: 40px;
+    margin-bottom: 30px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+/* Boutons */
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    position: relative;
+}
+
+.btn-non {
+    background: white;
+    color: #999;
+    border: 2px dashed #ddd;
+}
+
+.btn-non:hover {
+    transform: translateX(-10px) scale(0.95);
+    background: #f5f5f5;
+}
+
+.btn-oui {
+    background: linear-gradient(135deg, #d91b5c 0%, #e74c8c 100%);
+    color: white;
+    box-shadow: 0 8px 20px rgba(217, 27, 92, 0.3);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0%, 100% {
+        box-shadow: 0 8px 20px rgba(217, 27, 92, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(217, 27, 92, 0.5);
+    }
+}
+
+.btn-oui:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(217, 27, 92, 0.4);
+}
+
+.btn-oui:active {
+    transform: scale(0.95);
+}
+
+/* Message de succès */
+.success-message {
+    display: none;
+    font-size: 24px;
+    color: #d91b5c;
+    font-weight: 700;
+    margin-top: 30px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #d91b5c;
+    animation: confettiFall 3s linear;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
